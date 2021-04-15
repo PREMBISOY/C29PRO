@@ -4,6 +4,7 @@ const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 
 var engine, world;
+//var polygon;
 
 var block1,block2,block3,block4,block5,block6,block7,block8,block9;
 
@@ -12,42 +13,53 @@ function setup(){
     engine = Engine.create();
     world = engine.world;
 //level 1
-block1 = new Box(230,235,30,40);
-block2 = new Box(260,235,30,40);
-block3 = new Box(290,235,30,40);
-block4 = new Box(320,235,30,40);
- block5 = new Box(350,235,30,40);
+//fill(0,255,0)
+block1 = new Box(330,235,30,40);
+block2 = new Box(360,235,30,40);
+block3 = new Box(390,235,30,40);
+block4 = new Box(420,235,30,40);
+ block5 = new Box(450,235,30,40);
 //level 2
- block6 = new Box(380,195,30,40);
-block7 = new Box(410,195,30,40);
-block8 = new Box(440,195,30,40);
+//fill(0,0,255);
+block6 = new Box(360,195,30,40);
+block7 = new Box(390,195,30,40);
+block8 = new Box(420,195,30,40);
 //top
+//fill(255,0,0);
 block9 = new Box(390,155,30,40);
 //zameen
-ground = new Ground(1190,1000,1200,10);
+ground = new Ground(600,995,1200,10);
+stage = new Ground(390,275,170,5);
+hexagon = new Polygon(100,400,30,30);
 }
 
 
 function draw(){
-    background('black');
+    background('indigo');
     Engine.update(engine);
+ 
+    block1.display(fill(0,255,0));
+    block2.display(fill(0,255,0));
+    block3.display(fill(0,255,0));
+    block4.display(fill(0,255,0));
+    block5.display(fill(0,255,0));
     
-    block1.display();
-    block2.display();
-     block3.display();
-     block4.display();
+    block6.display(fill(0,0,255));
+    block7.display(fill(0,0,255));
+    block8.display(fill(0,0,255));
 
-    block5.display();
-    block6.display();
-
-    block7.display();
-    block8.display();
-    block9.display();
+    block9.display(fill(255,0,0));
 
     ground.display();
-
+    stage.display();
+    hexagon.display();
            
 
-
+//mouseDragged();
     drawSprites();
 }
+
+ function mouseDragged(){
+     Matter.Body.setPosition(hexagon.body, {x: mouseX , y: mouseY});
+ }
+ 

@@ -8,15 +8,15 @@ class Polygon{
             density:0.3,
             friction:0.5
         }
-        polygon = Bodies.circle(50,200,20);
-        world.add(world,polygon);
-        slingShot = new SlingShot(this.polygon,{x:100,y:200});
-    
+        this.polygon = Bodies.circle(x,y,radius,options);
+        World.add(world,this.polygon);
+        this.rope = new SlingShot(this.polygon,{x:100,y:400});
+    this.image = loadImage('polygon.png');
 
 }
 display(){
     imageMode(CENTER)
-    image(polygon_img,polygon.position.x,polygon.position.y,40,40);
+       image(this.image,this.polygon.position.x,this.polygon.position.y,40,40);
 }
     
 } 
