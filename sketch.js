@@ -56,10 +56,24 @@ function draw(){
            
 
 //mouseDragged();
+keyPressed();
     drawSprites();
 }
 
  function mouseDragged(){
-     Matter.Body.setPosition(hexagon.body, {x: mouseX , y: mouseY});
+     Matter.Body.setPosition(hexagon.polygon, {x: mouseX , y: mouseY});
  }
  
+ function mouseReleased(){
+    hexagon.rope.fly();
+}
+
+function keyPressed(){
+
+    if(keyCode===32){
+    hexagon.rope.attach(hexagon.polygon)
+    //Matter.Body.setPosition(hexagon.polygon, {x: 100 , y: 400});
+
+    }
+    }
+
